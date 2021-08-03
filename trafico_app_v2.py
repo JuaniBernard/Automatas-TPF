@@ -8,7 +8,7 @@ warnings.simplefilter('always', UserWarning)
 class Trafico:
     # Definir menú del programa
     def menu_trafico(self):
-        print('\n\n\tREGISTROS DE TRÁFICO')
+        print('\n\n\t--REGISTROS DE TRÁFICO--\n\t(28/08/2019 - 04/10/2019)')
         print('\n1. Mostrar direcciones MAC AP.')
         print('\n2. Mostrar direcciones MAC Cliente.')
         print('\n3. Mostrar usuarios.')
@@ -95,8 +95,8 @@ class Trafico:
                             break
         # Guardar en un archivo de texto el tráfico de cada AP
         with open('aps_traffic_output.txt', 'w') as outfile:
-            outfile.write('-Tráfico de cada AP entre %s y %s:\n(Ordenado de'
-                          ' mayor a menor)\n' % (date_init, date_end))
+            outfile.write('-Tráfico (octetos) de cada AP entre %s y %s:\n'
+                          '(Orden descendente)\n' % (date_init, date_end))
             for match in dict(sorted(trafico_dict.items(), key=lambda
                                      item: item[1], reverse=True)):
                 outfile.write('%s: %d\n' % (match, trafico_dict[match]))
